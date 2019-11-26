@@ -16,9 +16,6 @@ encodePlus r l = encodeDouble (2 * r, l)
 encodeMinus :: Integer -> Integer -> Integer -> Integer
 encodeMinus r l1 l2 = encodeDouble (2 * r + 1, encodeSingle (l1, l2))
 
-decode :: Integer -> (Integer, Integer, Integer)
-decode a = undefined
-
 decodeDouble :: Integer -> (Integer, Integer)
 decodeDouble a = decodeDouble' a 0
   where
