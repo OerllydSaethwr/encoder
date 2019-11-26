@@ -1,6 +1,6 @@
 module Encoder where
 
--- Instruction in one of two formats: Plus Ri Lj | Minus Ri Lj Lk
+-- Instruction in one of three formats: Plus Ri Lj | Minus Ri Lj Lk | Halt
 data Instruction = Plus Integer Integer | Minus Integer Integer Integer | Halt deriving (Show)
 
 
