@@ -43,3 +43,9 @@ decodeInstruction a
       where
         (j, k) = decodeSingle y
 
+
+decodeProgram :: Integer -> [Instruction]
+decodeProgram 0 = []
+decodeProgram a = decodeInstruction x : decodeProgram l
+  where
+    (x, l) = decodeDouble a
