@@ -49,3 +49,14 @@ decodeProgram 0 = []
 decodeProgram a = decodeInstruction x : decodeProgram l
   where
     (x, l) = decodeDouble a
+
+encodeInstruction :: Instruction -> Integer
+encodeInstruction (Plus i j) = encodeDouble (2 * i, j)
+encodeInstruction (Minus i j k) = encodeDouble (2 * i + 1, encodeSingle (j, k))
+encodeInstruction Halt = 0
+
+encodeProgram :: [Instruction] -> Integer
+encodeProgram [] = 0
+encodeProgram [Halt] = 1
+encodeProgram (x : xs) = encodeDouble (encodeInstruction x, encodeProgram xs)
+
